@@ -53,6 +53,8 @@ and *styles.scss*
 
 - but imported files should begins name with an underscore. if not, sass compiler will ignore it while compilation.
 
+---
+
 ### Mixins and Functions
 
 ![image](./screenshots/screen6.png 'image')
@@ -79,5 +81,23 @@ and *styles.scss*
 
 ---
 
+### Conditionals
 
+![image](./screenshots/screen8.png 'image') 
+
+- we can provide conditions in sass unlike css.
+
+- ie. here v suse a mixin called *triangle()*, which gets values on each parameter.
+
+- include the *triangle* mixin on *next* class.
+
+- pass the arguments to triangle mixin.
+
+- later can check the direction, and based on that v set a border-color.
+
+---
+
+## Application Part
+
+![CodePen For Reference](https://codepen.io/bradtraversy/pen/ExjmGdY?editors=1100)
 
