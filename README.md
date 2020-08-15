@@ -124,7 +124,7 @@ body{
 
 ### Using Sass Compiler NPM
 
-- install it and run the compiler to watch changes,
+- install it and run the compiler to compile scss/sass to css,
 
 ```bash
 
@@ -136,4 +136,24 @@ sass --watch scss/style.scss css/style.css
 
 - here changes made in sass file will also reflected in css file.
 
+---
+
+### Using VS Code extension Live sass compiler
+
+> open settings > serach for live sass > choose edit settings.json
+
+> make changes as below,
+
+**settings.json**
+
+```json
+"liveSassCompile.settings.formats": [
+        {
+            "format": "compressed",
+             "extensionName": ".css",
+            "savePath": "/css"
+        }
+    ],
+    "liveSassCompile.settings.generateMap": false
+```
 ---
