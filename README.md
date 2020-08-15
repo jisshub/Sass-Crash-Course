@@ -53,7 +53,31 @@ and *styles.scss*
 
 - but imported files should begins name with an underscore. if not, sass compiler will ignore it while compilation.
 
+### Mixins and Functions
 
+![image](./screenshots/screen6.png 'image')
+
+- here in *sass* file, v include the transform function using *@include*.
+
+- pass the **rotate(30deg)** as argument.
+
+- **$property** parameter receives it as a value.
+
+- later pass assigned the same for eaxg variables.
+
+---
+
+### Inheritance
+
+![image](./screenshots/screen7.png 'image')
+
+- For instance, a page might have diffrent buttns like success, warning, error buttons ...
+
+- this message have similar styles in case of borders, padding, margin, font color..
+
+- so v create a base styles for this at once. later v extend them to other class in sass using *@extend*.
+
+---
 
 
 
