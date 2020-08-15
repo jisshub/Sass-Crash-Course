@@ -101,3 +101,39 @@ and *styles.scss*
 
 ![CodePen For Reference](https://codepen.io/bradtraversy/pen/ExjmGdY?editors=1100)
 
+```scss
+$primary-color:#f4f4f4;
+$font-stack: Arial, Helvetica, sans-serif;
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: $primary-color;
+    font-family: $font-stack;
+    line-height: 1.5;
+}
+
+```
+
+- to compile the file, we hasve two options,
+
+1. using sass compiler of npm
+2. using sass lve compiler
+
+### Using Sass Compiler NPM
+
+- install it and run the compiler to watch changes,
+
+```bash
+
+npm i -g sass
+
+sass --watch scss/style.scss css/style.css
+
+```
+
+- here changes made in sass file will also reflected in css file.
+
+---
