@@ -18,8 +18,30 @@ img{
 }
 .showcase{
     background-color: $primary-color;
-    color: #f4f4f4;
+    color: $light-color;
     height: 600px;
+    
+    nav{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        ul{
+            display: flex;
+            list-style-type: none;
+        }
+        li{
+            padding: 15px;
+        }
+        a:hover{
+            color: $secondary-color;
+        }
+    } 
+    // links outside of nav also follow below styles
+    a{
+        color: $light-color;
+        text-decoration: none;
+    }
+
 }
 .container{
     max-width: 1100px;
