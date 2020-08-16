@@ -99,7 +99,7 @@ and *styles.scss*
 
 ## Application Part
 
-![CodePen For Reference](https://codepen.io/bradtraversy/pen/ExjmGdY?editors=1100)
+[CodePen For Reference](https://codepen.io/bradtraversy/pen/ExjmGdY?editors=1100)
 
 ```scss
 $primary-color:#f4f4f4;
@@ -140,7 +140,7 @@ sass --watch scss/style.scss css/style.css
 
 ### Using VS Code extension Live sass compiler
 
-> open settings > serach for live sass > choose edit settings.json
+> open settings > search for live sass > choose edit settings.json
 
 > make changes as below,
 
