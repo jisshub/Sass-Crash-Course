@@ -156,4 +156,190 @@ sass --watch scss/style.scss css/style.css
     ],
     "liveSassCompile.settings.generateMap": false
 ```
+
+
+```scss
+
+.showcase{
+    background-color: $primary-color;
+    color: $light-color;
+    height: 600px;
+    
+    nav{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        ul{
+            display: flex;
+            list-style-type: none;
+        }
+        li{
+            padding: 15px;
+        }
+        a:hover{
+            color: $secondary-color;
+        }
+    } 
+    // links outside of nav also follow below styles
+    a{
+        color: $light-color;
+        text-decoration: none;
+    }
+
+    &-content{
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img{
+            width: 50%;
+        }
+        h1{
+            font-size: 50px;
+            line-height: 1.2;            
+        }
+        p{
+            margin: 20px 0;
+        }
+    }
+```
+
+- here, *&-content* pertains to *showcase-content* class.
+
 ---
+
+## Using Partials in Sass
+
+- partials are used to breakdown the scss file to multiple file and while compiling, it
+compiles into one css file.
+
+- partial files r begins with *underscore*. eg: _config.scss, _utilities.scss
+
+- but the partial files r not compiled on its own like regular scss file.
+
+- first create a partial file for configurations
+
+**_config.scss**
+
+```scss
+$light-color:#f4f4f4;
+$font-stack: Arial, Helvetica, sans-serif;
+$primary-color: #3339FF;
+$secondary-color: #FC7C00;
+```
+
+- import the config.scss file to style.scss file
+- later v can use this configurations for all related files as well.
+
+**style.scss**
+```scss
+@import "config";
+```
+
+**_utilities.scss**
+```scss
+.container{
+    max-width: 1100px;
+    padding: 0 30px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+```
+
+**style.scss**
+```scss
+@import "utilties";
+```
+
+**_button.scss**
+
+```scss
+%btn{
+    display: inline-block;
+    border-radius: 5px;
+    padding: 8px 20px;
+    margin: 3px;
+
+    &:hover{
+        transform: scale(.98);
+    }
+}
+
+.btn-primary{
+    @extend %btn;
+    background-color: $primary-color;
+}
+.btn-secondary{
+    @extend %btn;
+    background-color: $secondary-color;
+}
+```
+
+- here v extends the *btn* property to *btn-primary* and *btn-secondary* classes
+---
+
+## Lighten function
+
+```scss
+
+.btn-primary{
+    @extend %btn;
+    background-color: lighten($primary-color, 10%);
+}
+
+```
+- lighten the color by 10%;
+
+## Functions and Conditionals
+
+**_config.scss**
+
+```scss
+// create a fcunction to set text color based on bg color
+@function set-text-color($color){
+    // if bg is lightcolor
+    @if (lightness($color) > 70) {
+        @return #333;
+    }
+    @else {
+        @return #fff;
+    }
+}
+```
+
+**style.scss**
+```scss
+
+.showcase{
+    background-color: $primary-color;
+    // call function 
+    color: set-text-color($primary-color);
+    height: 600px;
+    
+    nav{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        ul{
+            display: flex;
+            list-style-type: none;
+        }
+        li{
+            padding: 15px;
+        }
+        a:hover{
+            color: $secondary-color;
+        }
+    } 
+    // links outside of nav also follow below styles
+    a{
+        color: set-text-color($primary-color);
+        text-decoration: none;
+    }
+
+```
+- here v invoke the *set-text-color*() function in color property.
+
+---
+
+
