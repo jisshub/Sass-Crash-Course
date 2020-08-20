@@ -1,6 +1,6 @@
 $light-color:#f4f4f4;
 $font-stack: Arial, Helvetica, sans-serif;
-$primary-color: #3daa55;
+$primary-color: #0e6cff;
 $secondary-color: #FC7C00;
 
 // create a fcunction to set text color based on bg color
@@ -13,3 +13,10 @@ $secondary-color: #FC7C00;
         @return #fff;
     }
 }
+
+// create mixin to set bg color and text color
+@mixin set-bg-text-color($color) {
+    background-color: $color;
+    color: set-text-color($color);
+}
+

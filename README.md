@@ -342,4 +342,101 @@ $secondary-color: #FC7C00;
 
 ---
 
+## Using mixin
+
+- micxin is like a function that returns nothing.
+
+
+**style.scss**
+```scss
+
+.showcase{
+    background-color: $primary-color;
+    // call function 
+    color: set-text-color($primary-color);
+}
+```
+- here v can use mixin to set baxckground color and font color  property.
+
+**_config.scs**
+```scss
+
+@mixin set-bg-text-color($color){
+    
+    background-color: $color;
+    // call function 
+    color: set-text-color($color);
+}
+
+```
+
+- then use this mixin in style.scss
+
+**style.scss**
+
+```scss
+
+.showcase{
+
+    // include the mixin here to set bg and text color
+    @include set-bg-text-color($primary-color);
+    height: 600px;
+}
+```
+
+- thus v set the background and font color in one go.
+
+---
+
+
+## Using @each loop for automatically assiging padding and margin to the content
+
+**index.html**
+
+```html
+<p class="my-3">
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Est
+    eligendi tempore atque laborum. Quisquam nemo at non. Corrupti,
+    vitae dolore.
+</p>
+
+```
+
+**_utilities.scss**
+
+```scss
+
+// initialize a list
+$spaceamount : (1, 2, 3, 4, 5);
+
+// declare each loop to loop thru above list
+@each $var in $spaceamount {
+    // masrgin
+    .m-#{$var}{
+        margin: #{$var}rem ;
+    }   
+    .my-#{$var}{
+        margin: #{$var}rem 0;
+    }
+    // padding
+    .p-#{$var}{
+        padding: #{$var}rem;
+    }
+    .py-#{$var}{
+        padding: #{$var}rem 0;
+    }
+}
+
+```
+- *#{$var}* refers to each numbers in list spaceamount.
+
+- for instance *.p-#{$var}* indicated *.p-1, .p-2, .p-3* etc..
+
+- same as in case of margins to. *.m-#{$var}* refers to *.m-2, .m-1* etc..
+
+- based on case of class in p tag, appropriate style is chosen.
+
+- here class is *.my-3*, so corresponding margin is allocated using each loop.
+
+---
 

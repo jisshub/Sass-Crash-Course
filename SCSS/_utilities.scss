@@ -5,3 +5,25 @@
     overflow: hidden;
 }
 
+// initialize a list
+$spaceamount : (1, 2, 3, 4, 5);
+
+// declare each loop to loop thru above list
+@each $var in $spaceamount {
+    // masrgin
+    .m-#{$var}{
+        margin: #{$var}rem ;
+    }   
+    .my-#{$var}{
+        margin: #{$var}rem 0;
+    }
+    // padding
+    .p-#{$var}{
+        padding: #{$var}rem;
+    }
+    .py-#{$var}{
+        padding: #{$var}rem 0;
+    }
+}
+
+// #{$var} refers to each numbers in list spaceamount.

@@ -16,9 +16,9 @@ img{
     width: 100%;
 }
 .showcase{
-    background-color: $primary-color;
-    // call function 
-    color: set-text-color($primary-color);
+
+    // include the mixin here to set bg and text color
+    @include set-bg-text-color($primary-color);
     height: 600px;
     
     nav{
@@ -32,13 +32,15 @@ img{
         li{
             padding: 15px;
         }
+        a{
+            color: set-text-color($primary-color);
+        }
         a:hover{
             color: $secondary-color;
         }
     } 
     // links outside of nav also follow below styles
     a{
-        color: set-text-color($primary-color);
         text-decoration: none;
     }
 
@@ -53,9 +55,6 @@ img{
         h1{
             font-size: 50px;
             line-height: 1.2;            
-        }
-        p{
-            margin: 20px 0;
         }
     }
 
