@@ -344,7 +344,7 @@ $secondary-color: #FC7C00;
 
 ## Using mixin
 
-- micxin is like a function that returns nothing.
+- mixin is like a function that returns nothing.
 
 
 **style.scss**
@@ -430,13 +430,110 @@ $spaceamount : (1, 2, 3, 4, 5);
 ```
 - *#{$var}* refers to each numbers in list spaceamount.
 
-- for instance *.p-#{$var}* indicated *.p-1, .p-2, .p-3* etc..
+- for instance *.p-#{$var}* indicates *.p-1, .p-2, .p-3* etc.. classes.
 
 - same as in case of margins to. *.m-#{$var}* refers to *.m-2, .m-1* etc..
 
 - based on case of class in p tag, appropriate style is chosen.
 
 - here class is *.my-3*, so corresponding margin is allocated using each loop.
+
+---
+
+## using media queries in sass
+
+**_mobile.scss**
+
+```scss
+@media(max-width: 700px){
+ .showcase{
+     height: 400px;
+    &-content{
+        text-align: center;
+        img{
+            display: none;   
+        }
+    }
+ }   
+}
+```
+
+---
+
+### Complete Code
+
+**style.scss**
+
+```scss
+@import "config";
+@import "utilities";
+@import "buttons";
+@import "mobile";
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body
+{
+    background-color: $light-color;
+    font-family: $font-stack;
+    line-height: 1.5;
+}
+img{
+    width: 100%;
+}
+.showcase{
+
+    // include the mixin here to set bg and text color
+    @include set-bg-text-color($primary-color);
+    height: 600px;
+    
+    nav{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        ul{
+            display: flex;
+            list-style-type: none;
+        }
+        li{
+            padding: 15px;
+        }
+        a{
+            color: set-text-color($primary-color);
+        }
+        a:hover{
+            color: $secondary-color;
+        }
+    } 
+    // links outside of nav also follow below styles
+    a{
+        text-decoration: none;
+    }
+
+    &-content{
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 30px;
+        img{
+            width: 50%;
+        }
+        h1{
+            font-size: 50px;
+            line-height: 1.2;            
+        }
+    }
+
+}
+
+```
+
+---
+
+**Note:** Never put *scss* folder for deployment, it is for developemen, v put *style.css* compiled file for the deployment.
 
 ---
 
