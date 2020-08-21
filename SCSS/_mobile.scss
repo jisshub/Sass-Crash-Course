@@ -9,3 +9,12 @@
     }
  }   
 }
+
+@media(max-width: 400px){
+    .btn-primary{
+        display: block;
+    }
+    ul{
+        visibility: hidden;
+    }
+}

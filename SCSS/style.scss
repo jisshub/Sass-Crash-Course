@@ -21,7 +21,6 @@ img{
     // include the mixin here to set bg and text color
     @include set-bg-text-color($primary-color);
     height: 600px;
-    
     nav{
         display: flex;
         justify-content: space-between;
@@ -59,5 +58,4 @@ img{
             line-height: 1.2;            
         }
     }
-
 }
